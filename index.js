@@ -38,7 +38,7 @@ const questions = [ {
 
 },
 {
-    message: 'test placeholder??',
+    message: 'Describe any tests included with your application',
     name: 'test'
 
 },

@@ -35,30 +35,60 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if(license === 'None') {
+    return '';
+  }
+  else {
+    return '[License](#licenselink)';
+    
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if(license === 'None') {
+    return '';
+  }
+  else {
+    return `## <a name="licenselink"></a>License  
+     ${license}`
+  }
+}
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   
   return `# ${data.title} ${renderLicenseBadge(data.license)}
-## Description
+## Table of Contents
+[Description](#descriptionlink) 
+[Installation](#installlink) 
+[Usage](#usagelink) 
+${renderLicenseLink(data.license)} 
+[Contributing](#contributelink) 
+[Testing](#testslink) 
+[Questions](#questionslink) 
+
+## <a name="descriptionlink"></a>Description
 ${data.description}
-## Table of Contents 
-## Installation 
+
+## <a name="installlink"></a>Installation 
 ${data.install}
-## Usage 
+
+## <a name="usagelink"></a>Usage 
 ${data.usage}
-## License 
-${data.license}
-## Contributing 
+
+${renderLicenseSection(data.license)}
+
+## <a name="contributelink"></a>Contributing 
 ${data.contribution}
-## Tests 
+
+## <a name="testslink"></a>Tests 
 ${data.test}
-## Questions 
+
+## <a name="questionslink"></a>Questions 
 Github: ${data.github} 
 Email: ${data.email}
 `;
